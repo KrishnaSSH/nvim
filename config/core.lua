@@ -17,6 +17,7 @@ opt.showmode = false
 opt.laststatus = 2
 opt.statusline = [[%f %h%m%r%=%l,%c %P]]
 
+
 opt.tabstop = 2
 opt.shiftwidth = 2
 opt.softtabstop = 2
@@ -73,6 +74,13 @@ keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+local opts = { noremap = true, silent = true }
+
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", opts)
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", opts)
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", opts)
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 keymap("n", "<Space><Space>", function() require("telescope.builtin").find_files() end, opts)
